@@ -1,14 +1,6 @@
 # Getting Started
 
 ### Microservice to send mail
-
-#### Tools
-- Spring Boot Framework
-  - Spring Web
-  - Spring Data JPA
-  - Java Mail Sender
-- Validation
-- PostgreSQL Driver
 ---
 #### Steps to build
 - Build:  ```mvn clean package -DskipTests```
