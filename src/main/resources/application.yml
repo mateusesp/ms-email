@@ -21,3 +21,6 @@ spring:
           starttls:
             enable: true
           auth: true
+  rabbitmq:
+    addresses: amqps://xgvavwcx:Z45HPbMVZcxYgE3YKRxdcYkLoSJ0Jlfq@beaver.rmq.cloudamqp.com/xgvavwcx
+    queue: ms.email
