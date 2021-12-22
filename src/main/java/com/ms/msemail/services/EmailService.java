@@ -3,6 +3,8 @@ package com.ms.msemail.services;
 import com.ms.msemail.enums.StatusEmail;
 import com.ms.msemail.models.EmailModel;
 import com.ms.msemail.repositories.EmailRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailException;
 import org.springframework.mail.SimpleMailMessage;
@@ -13,6 +15,8 @@ import java.time.LocalDateTime;
 
 @Service
 public class EmailService {
+
+    private static final Logger logger = LoggerFactory.getLogger(EmailService.class);
 
     @Autowired
     EmailRepository emailRepository;
@@ -32,6 +36,7 @@ public class EmailService {
 
             emailModel.setStatusEmail(StatusEmail.SENT);
         } catch (MailException exception) {
+            logger.error("Error trying to execute sendEmail function with error: " + exception.getMessage());
             emailModel.setStatusEmail(StatusEmail.ERROR);
         } finally {
             return emailRepository.save(emailModel);
